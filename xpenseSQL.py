@@ -207,7 +207,9 @@ def add_expenses(userId):
 
     cursor.execute('''SELECT amount FROM income WHERE userId=?''', (userId,))
     amount = cursor.fetchone()
-    if amount[0] == 0: return
+    if amount[0] == 0: 
+        print("No available Income")
+        return None
 
     else: 
         category = input("CATEGORY (e.g Entertainment, Rent, Food): ")
